@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import ToDoAdd from "./components/ToDoAdd";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ToDoSearch from "./components/ToDoSearch";
+import ToDoDelete from "./components/ToDoDelete";
+import ToDoView from "./components/ToDoView";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<ToDoAdd />}></Route>
+        <Route path="search" element={<ToDoSearch />}></Route>
+        <Route path="delete" element={<ToDoDelete />}></Route>
+        <Route path="view" element={<ToDoView />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
